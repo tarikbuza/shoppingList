@@ -1,14 +1,14 @@
 # shoppingList
-simple Angular-based shopping list app
+simple Angular-based shopping list app  <br />
 
-Client side :
+Client side :  <br />
 
-cd/my-first-app
-npm install 
-npm start
-opet localhost:4200
+cd/my-first-app  <br />
+npm install      <br />
+npm start         <br />
+opet localhost:4200  <br />
 
-Server side:
-cd/app
-npm install
-nodemon entry.js
+Server side:   <br />
+cd/app          <br />  
+npm install      <br />
+nodemon entry.js   <br />
