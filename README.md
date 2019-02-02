@@ -8,7 +8,7 @@ npm install      <br />
 npm start         <br />
 opet localhost:4200  <br />
 
-Server side:   <br />
+Server side:   
 cd/app          <br />  
 npm install      <br />
 nodemon entry.js   <br />
