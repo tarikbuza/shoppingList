@@ -1,0 +1,65 @@
+<form #frm="ngForm" (ngSubmit)="addItem(frm)" *ngIf="!toggleForm">
+    <h2>Add item</h2>
+    <div class="form-group">
+        <div class="col-sm-7">
+            <label>Name:</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" name="itemName" value="" ngModel required>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <div class="col-sm-7">
+            <label>Quantity:</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" name="itemQuantity" value="" ngModel required>
+        </div>
+    </div>
+    <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Add new item</button>
+    <br>
+</form>
+<form #editfrm="ngForm" (ngSubmit)="editItem(editfrm)" *ngIf="toggleForm">
+    <h2>Edit item</h2>
+    <div class="form-group">
+        <div class="col-sm-7">
+            <label>Name:</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" name="itemName" value="" [ngModel]="selectedItem.itemName">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-7">
+            <label>Quantity:</label>
+        </div>
+        <div class="col-sm-7">
+            <input type="number" class="form-control" name="itemQuantity" value="" [ngModel]="selectedItem.itemQuantity">
+        </div>
+    </div>
+    <button type="submit" name="button" class="btn btn-success">Save item</button>
+    <br>    
+</form>
+<br>
+<h2>Shopping list</h2>
+<div class="row">
+  <ng-container *ngFor="let item of shoppingItemList">
+    <div class="col-sm-1">
+       <input type="checkbox" [checked]="item.itemBought" (click)="updateItemCheckbox(item)">
+    </div>
+    <div class="col-sm-3">
+        {{item.itemName}}
+    </div>
+    <div class="col-sm-2">
+        {{item.itemQuantity}}
+    </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-primary"name="button" (click)="showEditForm(item)" [disabled]="toggleForm">Edit</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-danger" name="button" (click)="deleteItem(item._id)">Delete</button>
+        <br><br>
+    </div>  
+  </ng-container>
+</div>
